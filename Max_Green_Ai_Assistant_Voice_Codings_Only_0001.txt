@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Green Skills AI Voice Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2c7744, #5aaf70);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(to right, #2c7744, #5aaf70);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .control-panel {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-display {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        .section-title {
+            color: #2c7744;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-size: 1.4rem;
+        }
+
+        .voice-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #2c7744;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #236338;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 119, 68, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .voice-selectors {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .selector-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        select {
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #2c7744;
+        }
+
+        .status-indicator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            border-left: 5px solid #2c7744;
+        }
+
+        .status {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .speaking {
+            color: #2c7744;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+            padding: 18px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #2c7744;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h3 {
+            color: #2c7744;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-section p {
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+            color: #495057;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .robot-avatar {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .avatar {
+            font-size: 4em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .settings-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        .slider-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e9ecef;
+            outline: none;
+        }
+
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .question-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .question-btn {
+            background: #e9f5eb;
+            border: 2px solid #2c7744;
+            border-radius: 10px;
+            padding: 12px 15px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: #2c7744;
+            font-weight: 600;
+        }
+
+        .question-btn:hover {
+            background: #2c7744;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .voice-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .voice-input input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .voice-input button {
+            background: #2c7744;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .chat-container {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: #e3f2fd;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+
+        .assistant-message {
+            background: #f5f5f5;
+            margin-right: auto;
+            border-bottom-left-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span>🤖</span> Max Green Skills AI Voice Assistant</h1>
+            <p>Ask me anything about Max Green Skills Development Organization</p>
+        </div>
+
+        <div class="content">
+            <div class="control-panel">
+                <div class="robot-avatar">
+                    <div class="avatar">🎤</div>
+                    <h3 class="section-title">Voice Control Panel</h3>
+                </div>
+
+                <div class="voice-selectors">
+                    <div class="selector-group">
+                        <label for="voiceSelect">Select Voice Type:</label>
+                        <select id="voiceSelect">
+                            <option value="male">Male Voice</option>
+                            <option value="female">Female Voice</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="voice-controls">
+                    <button class="btn btn-primary" onclick="startListening()">
+                        🎤 Start Listening
+                    </button>
+                    <button class="btn btn-danger" onclick="stopReading()">
+                        ⏹️ Stop
+                    </button>
+                </div>
+
+                <div class="settings-panel">
+                    <h4>Voice Settings</h4>
+                    <div class="slider-container">
+                        <label for="rateSlider">Speech Rate: <span id="rateValue">1.0</span></label>
+                        <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1.0" onchange="updateRate()">
+                    </div>
+                    <div class="slider-container">
+                        <label for="pitchSlider">Voice Pitch: <span id="pitchValue">1.0</span></label>
+                        <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1.0" onchange="updatePitch()">
+                    </div>
+                </div>
+
+                <div class="status-indicator">
+                    <div class="status" id="status">Ready to answer your questions</div>
+                </div>
+
+                <div class="question-buttons">
+                    <h4>Frequently Asked Questions:</h4>
+                    <button class="question-btn" onclick="askQuestion('Who is the CEO?')">Who is the CEO?</button>
+                    <button class="question-btn" onclick="askQuestion('What is Non-Formal Education?')">What is Non-Formal Education?</button>
+                    <button class="question-btn" onclick="askQuestion('Recent Event Details')">Recent Event Details</button>
+                    <button class="question-btn" onclick="askQuestion('What courses are available?')">What courses are available?</button>
+                    <button class="question-btn" onclick="askQuestion('How to apply?')">How to apply?</button>
+                    <button class="question-btn" onclick="askQuestion('What are the benefits?')">What are the benefits?</button>
+                    <button class="question-btn" onclick="askQuestion('What is the duration?')">What is the duration?</button>
+                    <button class="question-btn" onclick="askQuestion('Is there any fee?')">Is there any fee?</button>
+                </div>
+
+                <div class="voice-input">
+                    <input type="text" id="questionInput" placeholder="Type your question here...">
+                    <button onclick="askQuestion(document.getElementById('questionInput').value)">Ask</button>
+                </div>
+            </div>
+
+            <div class="info-display">
+                <h3 class="section-title">Conversation</h3>
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-message assistant-message">
+                        Hello! I'm your Max Green Skills assistant. Ask me anything about the organization, courses, or how to apply.
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>About Max Green Skills</h3>
+                    <p>Max Green Skills Development Organization is dedicated to providing skill development and education opportunities across Sindh, Pakistan.</p>
+                    <p>Led by CEO <span class="highlight">Mr. Munsif Lashari</span>, the organization focuses on Non-Formal Education and skill development programs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Max Green Skills Development Organization © 2025 | Led by CEO Mr. Munsif Lashari</p>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Database
+        const faqDatabase = {
+            "who is the ceo": {
+                answer: "The CEO of Max Green Skills Development Organization is Mr. Munsif Lashari. He leads the organization with a vision to empower communities through education and skill development programs across Sindh, Pakistan."
+            },
+            "what is non-formal education": {
+                answer: "Non-Formal Education at Max Green Skills refers to flexible, practical learning programs designed for out-of-school children, adolescents, and adults. These programs focus on literacy, basic education, and practical skills that help individuals improve their livelihoods without following the rigid structure of formal education systems."
+            },
+            "recent event details": {
+                answer: "Recently, CEO Mr. Munsif Lashari participated in the farewell ceremony of Mr. Azizullah Kehar, Finance Director of LUMHS, at Noori Restaurant, Keenjhar Lake. The organization also hosted a major collaboration event with partners including the Directorate of Literacy & Non-Formal Education, The NGO World Foundation, and Turkiye Diyanet Vakfi, featuring success stories, performances, and the signing of a Letter of Understanding."
+            },
+            "what courses are available": {
+                answer: "Max Green Skills offers various courses including: Non-Formal Education programs for out-of-school children, Adolescent and Adult Learning and Training Program (AALTP), Skill development courses in various trades, Literacy programs, and Vocational training tailored to local community needs."
+            },
+            "how to apply": {
+                answer: "To apply for courses at Max Green Skills, you can: Visit our centers in Tharparkar, Umerkot, or Karachi; Contact our partner organizations like Sindh Education Foundation; Reach out through our community coordinators; Or attend our information sessions held regularly in various communities across Sindh."
+            },
+            "what are the benefits": {
+                answer: "Benefits of joining Max Green Skills programs include: Gaining practical skills for employment, Improving literacy and education levels, Access to certificate programs, Community support and networking, Personalized learning approaches, and Opportunities for both personal and professional development."
+            },
+            "what is the duration": {
+                answer: "Course durations vary depending on the program: Non-Formal Education programs typically run for 6-12 months, Skill development courses range from 3-9 months, Adolescent and Adult Learning programs are usually 6 months to 1 year, Short-term vocational training can be 1-3 months based on the skill being taught."
+            },
+            "is there any fee": {
+                answer: "Most of the basic education and skill development programs at Max Green Skills are offered free of charge or at highly subsidized rates to ensure accessibility for all community members. Some advanced certification programs may have minimal fees, but scholarships and financial assistance are available for deserving candidates."
+            },
+            "default": {
+                answer: "I'm not sure I understand your question. Please try asking about our CEO, Non-Formal Education, available courses, how to apply, program benefits, duration, or fees. You can also click on any of the question buttons for specific information."
+            }
+        };
+
+        let speechSynthesis = window.speechSynthesis;
+        let currentUtterance = null;
+        let isSpeaking = false;
+        let recognition;
+
+        // Initialize speech recognition if available
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript.toLowerCase();
+                document.getElementById('questionInput').value = transcript;
+                askQuestion(transcript);
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error', event.error);
+                document.getElementById('status').textContent = 'Error: ' + event.error;
+            };
+
+            recognition.onend = function() {
+                document.getElementById('status').textContent = 'Ready to answer questions';
+            };
+        }
+
+        function startListening() {
+            if (recognition) {
+                document.getElementById('status').textContent = 'Listening... Speak now';
+                recognition.start();
+            } else {
+                document.getElementById('status').textContent = 'Speech recognition not supported in this browser';
+            }
+        }
+
+        function askQuestion(question) {
+            if (!question.trim()) return;
+            
+            // Add user question to chat
+            addMessageToChat(question, 'user');
+            
+            // Find the best matching answer
+            const normalizedQuestion = question.toLowerCase().trim();
+            let answer = faqDatabase.default.answer;
+            
+            for (const [key, value] of Object.entries(faqDatabase)) {
+                if (normalizedQuestion.includes(key)) {
+                    answer = value.answer;
+                    break;
+                }
+            }
+            
+            // Special handling for CEO name variations
+            if (normalizedQuestion.includes('munsif') || normalizedQuestion.includes('lashari') || 
+                normalizedQuestion.includes('ceo') || normalizedQuestion.includes('leader')) {
+                answer = faqDatabase["who is the ceo"].answer;
+            }
+            
+            // Add assistant answer to chat
+            addMessageToChat(answer, 'assistant');
+            
+            // Speak the answer
+            speakText(answer);
+        }
+
+        function addMessageToChat(message, sender) {
+            const chatContainer = document.getElementById('chatContainer');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'assistant-message');
+            messageElement.textContent = message;
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function speakText(text) {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            // Configure voice settings
+            const { rate, pitch } = getVoiceSettings();
+            currentUtterance.rate = rate;
+            currentUtterance.pitch = pitch;
+            currentUtterance.volume = 1;
+
+            // Select voice based on gender preference
+            const voiceType = document.getElementById('voiceSelect').value;
+            const voices = speechSynthesis.getVoices();
+            const preferredVoices = voices.filter(voice => {
+                return voiceType === 'female' ? 
+                    voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('samantha') || voice.name.toLowerCase().includes('karen') :
+                    voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('alex') || voice.name.toLowerCase().includes('daniel');
+            });
+
+            if (preferredVoices.length > 0) {
+                currentUtterance.voice = preferredVoices[0];
+            }
+
+            // Event handlers
+            currentUtterance.onstart = function() {
+                isSpeaking = true;
+                document.getElementById('status').textContent = 'Speaking...';
+                document.getElementById('status').className = 'status speaking';
+            };
+
+            currentUtterance.onend = function() {
+                isSpeaking = false;
+                document.getElementById('status').textContent = 'Ready to answer questions';
+                document.getElementById('status').className = 'status';
+            };
+
+            currentUtterance.onerror = function(event) {
+                isSpeaking = false;
+                document.getElementById('status').textContent = 'Error: ' + event.error;
+                document.getElementById('status').className = 'status';
+            };
+
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function getVoiceSettings() {
+            const rate = parseFloat(document.getElementById('rateSlider').value);
+            const pitch = parseFloat(document.getElementById('pitchSlider').value);
+            
+            return { rate, pitch };
+        }
+
+        function stopReading() {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+                isSpeaking = false;
+                document.getElementById('status').textContent = 'Stopped';
+                document.getElementById('status').className = 'status';
+            }
+        }
+
+        function updateRate() {
+            const rateValue = document.getElementById('rateSlider').value;
+            document.getElementById('rateValue').textContent = rateValue;
+            if (isSpeaking && currentUtterance) {
+                currentUtterance.rate = parseFloat(rateValue);
+            }
+        }
+
+        function updatePitch() {
+            const pitchValue = document.getElementById('pitchSlider').value;
+            document.getElementById('pitchValue').textContent = pitchValue;
+            if (isSpeaking && currentUtterance) {
+                currentUtterance.pitch = parseFloat(pitchValue);
+            }
+        }
+
+        // Load available voices when they are ready
+        speechSynthesis.onvoiceschanged = function() {
+            const voices = speechSynthesis.getVoices();
+            console.log('Available voices:', voices);
+        };
+
+        // Initialize slider values
+        document.getElementById('rateValue').textContent = document.getElementById('rateSlider').value;
+        document.getElementById('pitchValue').textContent = document.getElementById('pitchSlider').value;
+
+        // Allow pressing Enter in the input field
+        document.getElementById('questionInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                askQuestion(this.value);
+            }
+        });
+    </script>
+</body>
+</html>
