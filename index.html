@@ -3,660 +3,786 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Green Skills AI Voice Assistant</title>
+    <title>Max Green Skill Development Organization</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background: linear-gradient(135deg, #1a2a6c, #2c7744, #5aaf70);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: #333;
             padding: 20px;
         }
-
+        
         .container {
-            width: 100%;
-            max-width: 1000px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-
-        .header {
-            background: linear-gradient(to right, #2c7744, #5aaf70);
+        
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
             color: white;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
+            position: relative;
         }
-
-        .header h1 {
-            font-size: 2.2rem;
+        
+        header h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
-        .header p {
-            font-size: 1.1rem;
+        
+        header p {
+            font-size: 1.2rem;
             opacity: 0.9;
         }
-
-        .content {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+        
+        .voice-assistant {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
         }
-
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
+        
+        .voice-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
         }
-
-        .control-panel {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        
+        .voice-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
         }
-
-        .info-display {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            overflow-y: auto;
-            max-height: 500px;
+        
+        .voice-btn.active {
+            background: rgba(255,255,255,0.4);
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
         }
-
-        .section-title {
-            color: #2c7744;
+        
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2e7d32;
             margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e9ecef;
+            font-size: 1.8rem;
+            border-left: 5px solid #4caf50;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #388e3c;
+            margin: 25px 0 15px;
             font-size: 1.4rem;
         }
-
-        .voice-controls {
+        
+        .image-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
         }
-
-        .btn {
-            padding: 14px 20px;
-            border: none;
+        
+        .image-card {
             border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .caption {
+            padding: 15px;
+            background: white;
+        }
+        
+        .caption p {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .hashtags {
+            color: #1976d2;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .content {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+        }
+        
+        .content ul, .content ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        .content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #e1f5fe 0%, #e1f5fe 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #0288d1;
+        }
+        
+        .person {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f1f8e9;
+            border-radius: 8px;
+        }
+        
+        .person-icon {
+            width: 50px;
+            height: 50px;
+            background: #4caf50;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: #2c7744;
+            margin-right: 15px;
             color: white;
+            font-weight: bold;
+            flex-shrink: 0;
         }
-
-        .btn-primary:hover {
-            background: #236338;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(44, 119, 68, 0.3);
-        }
-
-        .btn-secondary {
-            background: #6c757d;
+        
+        footer {
+            background: #2e7d32;
             color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        
+        .image-links {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
         }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
+        
+        .image-links h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
         }
-
-        .btn-danger:hover {
-            background: #c82333;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        
+        .image-link-item {
+            margin-bottom: 8px;
+            padding: 5px;
+            border-bottom: 1px solid #e0e0e0;
+            word-break: break-all;
         }
-
-        .voice-selectors {
+        
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .voice-assistant {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .person {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .person-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .voice-controls {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .control-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        .control-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .progress-test {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .teacher-highlight {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        /* AI Assistant Q&A Styles */
+        .ai-assistant {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .ai-assistant h2 {
+            color: white;
+            border-left: 5px solid #ffeb3b;
             margin-bottom: 25px;
         }
 
-        .selector-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .qa-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        label {
-            font-weight: 600;
-            color: #495057;
-            margin-bottom: 5px;
-        }
-
-        select {
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-            background: white;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #2c7744;
-        }
-
-        .status-indicator {
-            background: white;
+        .qa-item {
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
-            border-left: 5px solid #2c7744;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
         }
 
-        .status {
-            font-weight: 600;
-            color: #495057;
+        .qa-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        .speaking {
-            color: #2c7744;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        .info-section {
-            margin-bottom: 20px;
-            padding: 18px;
-            background: white;
-            border-radius: 10px;
-            border-left: 4px solid #2c7744;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .info-section h3 {
-            color: #2c7744;
+        .question {
+            font-weight: bold;
             margin-bottom: 10px;
-            font-size: 1.2rem;
+            color: #ffeb3b;
+            font-size: 1.1rem;
         }
 
-        .info-section p {
-            color: #495057;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .info-section ul {
-            margin-left: 20px;
-            color: #495057;
-        }
-
-        .info-section li {
-            margin-bottom: 8px;
+        .answer {
+            color: #e0e0e0;
             line-height: 1.5;
         }
 
-        .robot-avatar {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        .avatar {
-            font-size: 4em;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .settings-panel {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .slider-container {
-            margin: 15px 0;
-        }
-
-        .slider-container label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 5px;
-            background: #e9ecef;
-            outline: none;
-        }
-
-        .footer {
-            background: #343a40;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
-        }
-
-        .highlight {
-            background-color: #fff9c4;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .question-buttons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .question-btn {
-            background: #e9f5eb;
-            border: 2px solid #2c7744;
-            border-radius: 10px;
-            padding: 12px 15px;
-            text-align: left;
+        .ask-btn {
+            background: #ffeb3b;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
             cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
             transition: all 0.3s ease;
-            font-size: 14px;
-            color: #2c7744;
-            font-weight: 600;
         }
 
-        .question-btn:hover {
-            background: #2c7744;
-            color: white;
+        .ask-btn:hover {
+            background: #ffd600;
             transform: translateY(-2px);
         }
 
-        .voice-input {
+        .website-links {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .voice-input input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .voice-input button {
-            background: #2c7744;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0 20px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .chat-container {
-            max-height: 300px;
-            overflow-y: auto;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-top: 20px;
-            padding: 10px;
-            background: white;
-            border-radius: 10px;
-            border: 1px solid #e9ecef;
+            justify-content: center;
         }
 
-        .chat-message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 10px;
-            max-width: 80%;
+        .website-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .user-message {
-            background: #e3f2fd;
-            margin-left: auto;
-            border-bottom-right-radius: 2px;
-        }
-
-        .assistant-message {
-            background: #f5f5f5;
-            margin-right: auto;
-            border-bottom-left-radius: 2px;
+        .website-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1><span>🤖</span> Max Green Skills AI Voice Assistant</h1>
-            <p>Ask me anything about Max Green Skills Development Organization</p>
-        </div>
+        <header>
+            <h1>Max Green Skill Development Organization</h1>
+            <p>Empowering Communities Through Education and Skills</p>
+            
+            <div class="voice-assistant">
+                <button class="voice-btn" id="femaleVoice">
+                    <span>🔊 Female Voice</span>
+                </button>
+                <button class="voice-btn" id="maleVoice">
+                    <span>🔊 Male Voice</span>
+                </button>
+            </div>
+            
+            <div class="voice-controls">
+                <button class="control-btn" id="playBtn">▶️ Play</button>
+                <button class="control-btn" id="pauseBtn">⏸️ Pause</button>
+                <button class="control-btn" id="stopBtn">⏹️ Stop</button>
+            </div>
+        </header>
 
-        <div class="content">
-            <div class="control-panel">
-                <div class="robot-avatar">
-                    <div class="avatar">🎤</div>
-                    <h3 class="section-title">Voice Control Panel</h3>
-                </div>
-
-                <div class="voice-selectors">
-                    <div class="selector-group">
-                        <label for="voiceSelect">Select Voice Type:</label>
-                        <select id="voiceSelect">
-                            <option value="male">Male Voice</option>
-                            <option value="female">Female Voice</option>
-                        </select>
+        <!-- AI Assistant Q&A Section -->
+        <div class="section">
+            <div class="ai-assistant">
+                <h2>🤖 Max Green AI Voice Assistant - Questions & Answers</h2>
+                <p>Ask me anything about Max Green Skill Development Organization!</p>
+                
+                <div class="qa-container">
+                    <div class="qa-item">
+                        <div class="question">Who is the CEO?</div>
+                        <div class="answer">Mr. Munsif Lashari is the CEO of Max Green Skill Development Organization. He leads various educational initiatives and partnerships.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Mr. Munsif Lashari is the CEO of Max Green Skill Development Organization. He leads various educational initiatives and partnerships.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">What is Non Formal Education?</div>
+                        <div class="answer">Non-Formal Education (NFE) provides learning opportunities to out-of-school children and adults in marginalized communities through flexible programs.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Non-Formal Education provides learning opportunities to out-of-school children and adults in marginalized communities through flexible programs that focus on basic literacy, numeracy, and life skills.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">Recent Event Details</div>
+                        <div class="answer">Recent events include monitoring visits in Tharparkar, LoU signing for 133 NFE centers, and meetings with Sindh Education Foundation officials.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Recent events include surprise monitoring visits to NFE centers in Tharparkar, Letter of Understanding signing ceremony for 133 Non-Formal Education centers, and important meetings with Sindh Education Foundation officials.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">What courses are available?</div>
+                        <div class="answer">We offer Non-Formal Education programs, Adult Literacy courses, Skill Development training, and Adolescent Learning programs.</div>
+                        <button class="ask-btn" onclick="speakAnswer('We offer various courses including Non-Formal Education programs for out-of-school children, Adult Literacy courses, Skill Development training programs, and Adolescent Learning and Training Programs.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">How to apply?</div>
+                        <div class="answer">You can apply through our local NFE centers, contact our regional offices, or visit our official websites for enrollment information.</div>
+                        <button class="ask-btn" onclick="speakAnswer('You can apply through our local Non-Formal Education centers, contact our regional offices directly, or visit our official websites for enrollment procedures and requirements.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">What are the benefits?</div>
+                        <div class="answer">Benefits include free education, skill development, community empowerment, employment opportunities, and personal growth.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Benefits include free education access, practical skill development, community empowerment, enhanced employment opportunities, and personal growth through continuous learning.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">What is the duration?</div>
+                        <div class="answer">Course durations vary from 3 months for basic literacy to 1 year for comprehensive skill development programs.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Course durations vary depending on the program. Basic literacy courses typically last 3-6 months, while comprehensive skill development programs can run for 6-12 months.')">🔊 Ask AI</button>
+                    </div>
+                    
+                    <div class="qa-item">
+                        <div class="question">Is there any fees?</div>
+                        <div class="answer">Most programs are free of cost, especially Non-Formal Education initiatives supported by government partnerships.</div>
+                        <button class="ask-btn" onclick="speakAnswer('Most of our educational programs are completely free of cost, particularly the Non-Formal Education initiatives that are supported through government partnerships and community funding.')">🔊 Ask AI</button>
                     </div>
                 </div>
 
-                <div class="voice-controls">
-                    <button class="btn btn-primary" onclick="startListening()">
-                        🎤 Start Listening
-                    </button>
-                    <button class="btn btn-danger" onclick="stopReading()">
-                        ⏹️ Stop
-                    </button>
-                </div>
-
-                <div class="settings-panel">
-                    <h4>Voice Settings</h4>
-                    <div class="slider-container">
-                        <label for="rateSlider">Speech Rate: <span id="rateValue">1.0</span></label>
-                        <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1.0" onchange="updateRate()">
-                    </div>
-                    <div class="slider-container">
-                        <label for="pitchSlider">Voice Pitch: <span id="pitchValue">1.0</span></label>
-                        <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1.0" onchange="updatePitch()">
-                    </div>
-                </div>
-
-                <div class="status-indicator">
-                    <div class="status" id="status">Ready to answer your questions</div>
-                </div>
-
-                <div class="question-buttons">
-                    <h4>Frequently Asked Questions:</h4>
-                    <button class="question-btn" onclick="askQuestion('Who is the CEO?')">Who is the CEO?</button>
-                    <button class="question-btn" onclick="askQuestion('What is Non-Formal Education?')">What is Non-Formal Education?</button>
-                    <button class="question-btn" onclick="askQuestion('Recent Event Details')">Recent Event Details</button>
-                    <button class="question-btn" onclick="askQuestion('What courses are available?')">What courses are available?</button>
-                    <button class="question-btn" onclick="askQuestion('How to apply?')">How to apply?</button>
-                    <button class="question-btn" onclick="askQuestion('What are the benefits?')">What are the benefits?</button>
-                    <button class="question-btn" onclick="askQuestion('What is the duration?')">What is the duration?</button>
-                    <button class="question-btn" onclick="askQuestion('Is there any fee?')">Is there any fee?</button>
-                </div>
-
-                <div class="voice-input">
-                    <input type="text" id="questionInput" placeholder="Type your question here...">
-                    <button onclick="askQuestion(document.getElementById('questionInput').value)">Ask</button>
+                <div class="website-links">
+                    <a href="https://maxgreenskills0009.netlify.app/" class="website-link" target="_blank">🌐 Website 1</a>
+                    <a href="https://maxgreenskills0010.netlify.app/" class="website-link" target="_blank">🌐 Website 2</a>
+                    <a href="https://maxgreenskills0011.netlify.app/" class="website-link" target="_blank">🌐 Website 3</a>
+                    <a href="https://maxgreenskills0012.netlify.app/" class="website-link" target="_blank">🌐 Website 4</a>
                 </div>
             </div>
-
-            <div class="info-display">
-                <h3 class="section-title">Conversation</h3>
-                <div class="chat-container" id="chatContainer">
-                    <div class="chat-message assistant-message">
-                        Hello! I'm your Max Green Skills assistant. Ask me anything about the organization, courses, or how to apply.
+        </div>
+        
+        <!-- Progress Test Section -->
+        <div class="section">
+            <div class="progress-test">
+                <h2>🎓 Monthly Progress Test at MAX GREEN NFE Center</h2>
+                <div class="teacher-highlight">
+                    <h3>👨‍🏫 Teacher: Mukesh Kumar</h3>
+                    <p><strong>Location:</strong> MAX GREEN NFE Center Shive Colony UC Bhitaro Taluka Diplo Distt Tharparkar</p>
+                </div>
+                
+                <div class="content">
+                    <p>Mukesh Kumar, teacher at MAX GREEN NFE Center Shive Colony UC Bhitaro Taluka Diplo Distt Tharparkar, conducted the monthly progress test and awarded positions to the top-performing students.</p>
+                    <p>This activity is part of the Non-Formal Education (NFE) Program, which provides learning opportunities to out-of-school children and adults in marginalized communities.</p>
+                    <p>Recognizing students' achievements helps motivate them to continue learning and improving.</p>
+                </div>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7N0-h4ZdvzU-JX7D6dfZW9JM2L5nBMyWtlmCzAtD8NZuQr0UnkXO5zYK6MUxbQEUfNNDBs937irULaSrHd0mSCbw0KrAm8b9XiBZ1ybwU256RYXFhUycHln59phdg60yBmf1n7k24BPbvvbdTgH8e-P0IeATlfO7_YWuVH-74eoQneoNoH9x_clmsPOPZ/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.07_2936dfec.jpg" alt="Progress Test">
+                        <div class="caption">
+                            <p>Monthly progress test conducted by teacher Mukesh Kumar</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnzJWOMdDyqLGz8Qm_U_nGMp1Ps2YmFnCHbySZtr6-eJsHgBzhsrLIpuPh77OcnuukVkIJqnR7GGWqksie1hUl4HMFa0hEuTl6__Nn4AmCWWN9B8GgB6EPTEziyDcdCpAXNzlCZRCHqMQRUemUqdA5rMdxlDz_8c8rsc0OLkFPNtcVMFNQe5f4VhSk93s0/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.07_eeb08e74.jpg" alt="Student Recognition">
+                        <div class="caption">
+                            <p>Top-performing students receiving awards and recognition</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9brBorN8Nnt-fJ4U0HEL-DYbaT8wXDG17jq2sNgcvUlcKOQfqG3cSE0IzXsOceWoXXbxvpE9KnMJivWJ6xzvkujjekFYm-2O3w1IO9HFPxIpT-VZsedY_9ltdIg61a0UnQWW9xv-aHbEMbLAQmhmmeA6rpCLLyJuz8chRazpAXITg1COwyzB_YHu2DcDK/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.08_4f1752ce.jpg" alt="Learning Activities">
+                        <div class="caption">
+                            <p>Interactive learning activities at NFE Center</p>
+                        </div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFrriRJtrumvMGEeGU3iNZnyMPIH_41YNfFXiSjTEku09YYzDM7yVi6pLKsL104fJv9FViPk5D4Jsh6LjQtkYXWUK2UQcEzNoNdnGnyUtVicJ5tkK7eEwqBQnsS5IB2gZD3SgrjvcDbhTLrgvofefxPwtx8I43L9kibj_I8D-mnqiZg_CIyP2CAQuiULZ4/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.08_cbe6db6b.jpg" alt="Community Education">
+                        <div class="caption">
+                            <p>Empowering communities through non-formal education</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="info-section">
-                    <h3>About Max Green Skills</h3>
-                    <p>Max Green Skills Development Organization is dedicated to providing skill development and education opportunities across Sindh, Pakistan.</p>
-                    <p>Led by CEO <span class="highlight">Mr. Munsif Lashari</span>, the organization focuses on Non-Formal Education and skill development programs.</p>
+                
+                <div class="image-links">
+                    <h4>📸 Blogger Image Links - Progress Test:</h4>
+                    <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7N0-h4ZdvzU-JX7D6dfZW9JM2L5nBMyWtlmCzAtD8NZuQr0UnkXO5zYK6MUxbQEUfNNDBs937irULaSrHd0mSCbw0KrAm8b9XiBZ1ybwU256RYXFhUycHln59phdg60yBmf1n7k24BPbvvbdTgH8e-P0IeATlfO7_YWuVH-74eoQneoNoH9x_clmsPOPZ/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.07_2936dfec.jpg</div>
+                    <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnzJWOMdDyqLGz8Qm_U_nGMp1Ps2YmFnCHbySZtr6-eJsHgBzhsrLIpuPh77OcnuukVkIJqnR7GGWqksie1hUl4HMFa0hEuTl6__Nn4AmCWWN9B8GgB6EPTEziyDcdCpAXNzlCZRCHqMQRUemUqdA5rMdxlDz_8c8rsc0OLkFPNtcVMFNQe5f4VhSk93s0/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.07_eeb08e74.jpg</div>
+                    <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9brBorN8Nnt-fJ4U0HEL-DYbaT8wXDG17jq2sNgcvUlcKOQfqG3cSE0IzXsOceWoXXbxvpE9KnMJivWJ6xzvkujjekFYm-2O3w1IO9HFPxIpT-VZsedY_9ltdIg61a0UnQWW9xv-aHbEMbLAQmhmmeA6rpCLLyJuz8chRazpAXITg1COwyzB_YHu2DcDK/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.08_4f1752ce.jpg</div>
+                    <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFrriRJtrumvMGEeGU3iNZnyMPIH_41YNfFXiSjTEku09YYzDM7yVi6pLKsL104fJv9FViPk5D4Jsh6LjQtkYXWUK2UQcEzNoNdnGnyUtVicJ5tkK7eEwqBQnsS5IB2gZD3SgrjvcDbhTLrgvofefxPwtx8I43L9kibj_I8D-mnqiZg_CIyP2CAQuiULZ4/s320/WhatsApp%20Image%202025-11-06%20at%2006.27.08_cbe6db6b.jpg</div>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
-            <p>Max Green Skills Development Organization © 2025 | Led by CEO Mr. Munsif Lashari</p>
+        <div class="section">
+            <h2>Surprise Monitoring Visits – Lighting the Path of Learning in Tharparkar 🌟</h2>
+            <div class="content">
+                <p>In a continued effort to ensure quality education and impactful learning experiences, CEO Max Green Skill Development Organisation, Mr. Munsif Lashari, and District Education Officer Literacy (DEO) Mr Kastoor Chand along with Program Manager NFE, Mr. Hamza Khalid, conducted surprise monitoring visits to various Non-Formal Education (NFE) Centres across District Tharparkar.</p>
+                <p>The purpose of these visits was to review the progress of the centers, evaluate learner attendance, and observe community participation — key elements that ensure sustainability and strengthen the spirit of local ownership in education initiatives.</p>
+                <p>During the visits, the team expressed satisfaction over the dedication of learners and facilitators while encouraging continuous improvement to make learning more engaging and effective for children and adults alike.</p>
+                <p>These NFE Centres are being operated under the management of Max Green Skill Development Organisation, with the valuable support of the Directorate of Literacy and Non-Formal Education, Government of Sindh.</p>
+                <p>📖 Max Green remains committed to spreading the light of knowledge across every corner of Tharparkar — empowering minds, nurturing dreams, and transforming communities through education. ✨</p>
+            </div>
+            <div class="hashtags">#MaxGreenSkillDevelopmentOrganisation #NFE #EducationForAll #Tharparkar #MonitoringVisit #GovernmentOfSindh #NonFormalEducation #LightOfLearning</div>
+            
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUZhVRHPmcUQtd1l3rMckZKSNC-d1-UFgrfWBz3wYTnmazeouC5oSbqnqyLd_pcAD2acgL-2ONqapCHacjAMtyXOJ6LhD4QadxPwz9cGRCf9-ByNjfQF40zbuL5zU2pqsIfKL4XkxKJnw_csCR4a0StD7O-ScDzHVMmSHyszhCC8mgkxCWefXjJAEPyk9Y/s320/573853247_1213382487513743_7330894975313270120_n%20(1).jpg" alt="Monitoring Visit">
+                    <div class="caption">
+                        <p>Surprise monitoring at NFE Centers in Tharparkar</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh8vJ_IEQ_huFRUXCjYxMJh9gS-sNbZ2iV17RMSYV3ennto6QZDAOoHJkP9LNDejvDmg5AMOyvTrhrBJDzmEjk6U9u2hQN-dma5n79M5LnucVVBZppoIdVThF4o-HV3g3QYhFBnWNp51qeQJduInauWnnyzD0nTwAf3UaA65OLQ63qUx827AR9vzFqRGyu/s320/573853247_1213382487513743_7330894975313270120_n.jpg" alt="Monitoring Visit">
+                    <div class="caption">
+                        <p>Engaging with learners and facilitators</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxIo4uWUG56vAaBmmBJyF3oN6pPsgTe8SI77D3FW9H41LYa8Dxkda2VHVsEN4Cr3UhaaY8atzwF2CMzoRDPbZK6xBiNMwdRBAN4ACEzmkh364HpdG-egOuii2Vir0ziikHA7_ljqZqETjO0fO33Ul0U5uc48xyRYhUR_bA57BE6SL5nOjK37vvpaXKRfpQ/s320/575106130_1213382494180409_920479327953157041_n%20(1).jpg" alt="Monitoring Visit">
+                    <div class="caption">
+                        <p>Reviewing educational materials and progress</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_GP0AL2u_26Ao8raT6Oqy_IgZdZdwumYlooKBU13R5NhZw4wkq61-hhsSTBc6EAKpopxZHFXQ6IYP4wDwMYfXw3zdvX0-2VZmviTJOoBsLtAouqA32KiXfZk3K4Amp6TTAzGHe8HpRn-oeZKuLE2HURvs12ZdVkuUrj8HOUbq1CdjZ4ApDJ5Pi3OcjtUS/s320/575106130_1213382494180409_920479327953157041_n.jpg" alt="Monitoring Visit">
+                    <div class="caption">
+                        <p>Ensuring quality education for all</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-links">
+                <h4>📸 Blogger Image Links - Monitoring Visit:</h4>
+                <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUZhVRHPmcUQtd1l3rMckZKSNC-d1-UFgrfWBz3wYTnmazeouC5oSbqnqyLd_pcAD2acgL-2ONqapCHacjAMtyXOJ6LhD4QadxPwz9cGRCf9-ByNjfQF40zbuL5zU2pqsIfKL4XkxKJnw_csCR4a0StD7O-ScDzHVMmSHyszhCC8mgkxCWefXjJAEPyk9Y/s320/573853247_1213382487513743_7330894975313270120_n%20(1).jpg</div>
+                <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh8vJ_IEQ_huFRUXCjYxMJh9gS-sNbZ2iV17RMSYV3ennto6QZDAOoHJkP9LNDejvDmg5AMOyvTrhrBJDzmEjk6U9u2hQN-dma5n79M5LnucVVBZppoIdVThF4o-HV3g3QYhFBnWNp51qeQJduInauWnnyzD0nTwAf3UaA65OLQ63qUx827AR9vzFqRGyu/s320/573853247_1213382487513743_7330894975313270120_n.jpg</div>
+                <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxIo4uWUG56vAaBmmBJyF3oN6pPsgTe8SI77D3FW9H41LYa8Dxkda2VHVsEN4Cr3UhaaY8atzwF2CMzoRDPbZK6xBiNMwdRBAN4ACEzmkh364HpdG-egOuii2Vir0ziikHA7_ljqZqETjO0fO33Ul0U5uc48xyRYhUR_bA57BE6SL5nOjK37vvpaXKRfpQ/s320/575106130_1213382494180409_920479327953157041_n%20(1).jpg</div>
+                <div class="image-link-item">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_GP0AL2u_26Ao8raT6Oqy_IgZdZdwumYlooKBU13R5NhZw4wkq61-hhsSTBc6EAKpopxZHFXQ6IYP4wDwMYfXw3zdvX0-2VZmviTJOoBsLtAouqA32KiXfZk3K4Amp6TTAzGHe8HpRn-oeZKuLE2HURvs12ZdVkuUrj8HOUbq1CdjZ4ApDJ5Pi3OcjtUS/s320/575106130_1213382494180409_920479327953157041_n.jpg</div>
+            </div>
         </div>
+
+        <!-- Additional sections would follow the same pattern -->
+        
+        <footer>
+            <p>Max Green Skill Development Organization &copy; 2025 | Empowering Communities Through Education</p>
+            <p>Transforming Lives, Building Futures</p>
+            <div class="website-links" style="margin-top: 15px;">
+                <a href="https://maxgreenskills0009.netlify.app/" class="website-link" target="_blank">🌐 Website 1</a>
+                <a href="https://maxgreenskills0010.netlify.app/" class="website-link" target="_blank">🌐 Website 2</a>
+                <a href="https://maxgreenskills0011.netlify.app/" class="website-link" target="_blank">🌐 Website 3</a>
+                <a href="https://maxgreenskills0012.netlify.app/" class="website-link" target="_blank">🌐 Website 4</a>
+            </div>
+        </footer>
     </div>
 
     <script>
-        // FAQ Database
-        const faqDatabase = {
-            "who is the ceo": {
-                answer: "The CEO of Max Green Skills Development Organization is Mr. Munsif Lashari. He leads the organization with a vision to empower communities through education and skill development programs across Sindh, Pakistan."
-            },
-            "what is non-formal education": {
-                answer: "Non-Formal Education at Max Green Skills refers to flexible, practical learning programs designed for out-of-school children, adolescents, and adults. These programs focus on literacy, basic education, and practical skills that help individuals improve their livelihoods without following the rigid structure of formal education systems."
-            },
-            "recent event details": {
-                answer: "Recently, CEO Mr. Munsif Lashari participated in the farewell ceremony of Mr. Azizullah Kehar, Finance Director of LUMHS, at Noori Restaurant, Keenjhar Lake. The organization also hosted a major collaboration event with partners including the Directorate of Literacy & Non-Formal Education, The NGO World Foundation, and Turkiye Diyanet Vakfi, featuring success stories, performances, and the signing of a Letter of Understanding."
-            },
-            "what courses are available": {
-                answer: "Max Green Skills offers various courses including: Non-Formal Education programs for out-of-school children, Adolescent and Adult Learning and Training Program (AALTP), Skill development courses in various trades, Literacy programs, and Vocational training tailored to local community needs."
-            },
-            "how to apply": {
-                answer: "To apply for courses at Max Green Skills, you can: Visit our centers in Tharparkar, Umerkot, or Karachi; Contact our partner organizations like Sindh Education Foundation; Reach out through our community coordinators; Or attend our information sessions held regularly in various communities across Sindh."
-            },
-            "what are the benefits": {
-                answer: "Benefits of joining Max Green Skills programs include: Gaining practical skills for employment, Improving literacy and education levels, Access to certificate programs, Community support and networking, Personalized learning approaches, and Opportunities for both personal and professional development."
-            },
-            "what is the duration": {
-                answer: "Course durations vary depending on the program: Non-Formal Education programs typically run for 6-12 months, Skill development courses range from 3-9 months, Adolescent and Adult Learning programs are usually 6 months to 1 year, Short-term vocational training can be 1-3 months based on the skill being taught."
-            },
-            "is there any fee": {
-                answer: "Most of the basic education and skill development programs at Max Green Skills are offered free of charge or at highly subsidized rates to ensure accessibility for all community members. Some advanced certification programs may have minimal fees, but scholarships and financial assistance are available for deserving candidates."
-            },
-            "default": {
-                answer: "I'm not sure I understand your question. Please try asking about our CEO, Non-Formal Education, available courses, how to apply, program benefits, duration, or fees. You can also click on any of the question buttons for specific information."
-            }
-        };
-
-        let speechSynthesis = window.speechSynthesis;
+        // Enhanced Text-to-Speech Functionality
+        const femaleVoiceBtn = document.getElementById('femaleVoice');
+        const maleVoiceBtn = document.getElementById('maleVoice');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        
         let currentUtterance = null;
-        let isSpeaking = false;
-        let recognition;
-
-        // Initialize speech recognition if available
-        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'en-US';
-
-            recognition.onresult = function(event) {
-                const transcript = event.results[0][0].transcript.toLowerCase();
-                document.getElementById('questionInput').value = transcript;
-                askQuestion(transcript);
-            };
-
-            recognition.onerror = function(event) {
-                console.error('Speech recognition error', event.error);
-                document.getElementById('status').textContent = 'Error: ' + event.error;
-            };
-
-            recognition.onend = function() {
-                document.getElementById('status').textContent = 'Ready to answer questions';
-            };
-        }
-
-        function startListening() {
-            if (recognition) {
-                document.getElementById('status').textContent = 'Listening... Speak now';
-                recognition.start();
-            } else {
-                document.getElementById('status').textContent = 'Speech recognition not supported in this browser';
-            }
-        }
-
-        function askQuestion(question) {
-            if (!question.trim()) return;
-            
-            // Add user question to chat
-            addMessageToChat(question, 'user');
-            
-            // Find the best matching answer
-            const normalizedQuestion = question.toLowerCase().trim();
-            let answer = faqDatabase.default.answer;
-            
-            for (const [key, value] of Object.entries(faqDatabase)) {
-                if (normalizedQuestion.includes(key)) {
-                    answer = value.answer;
-                    break;
+        let isPlaying = false;
+        
+        // Function to speak text
+        function speakText(text, voiceType) {
+            // Check if browser supports speech synthesis
+            if ('speechSynthesis' in window) {
+                // Stop any ongoing speech
+                speechSynthesis.cancel();
+                
+                // Create a new speech synthesis utterance
+                const utterance = new SpeechSynthesisUtterance();
+                currentUtterance = utterance;
+                
+                // Set the text to be spoken
+                utterance.text = text;
+                
+                // Set voice properties based on selection
+                if (voiceType === 'female') {
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1;
+                } else {
+                    utterance.rate = 0.9;
+                    utterance.pitch = 0.8;
+                    utterance.volume = 1;
                 }
+                
+                // Get available voices and try to set an appropriate one
+                const voices = speechSynthesis.getVoices();
+                
+                // Try to find a suitable voice
+                let selectedVoice = null;
+                
+                if (voiceType === 'female') {
+                    selectedVoice = voices.find(voice => 
+                        voice.name.includes('Female') || 
+                        voice.name.includes('woman') || 
+                        voice.name.includes('Samantha') ||
+                        voice.lang.includes('en-US')
+                    );
+                } else {
+                    selectedVoice = voices.find(voice => 
+                        voice.name.includes('Male') || 
+                        voice.name.includes('man') || 
+                        voice.name.includes('Alex') ||
+                        voice.lang.includes('en-US')
+                    );
+                }
+                
+                if (selectedVoice) {
+                    utterance.voice = selectedVoice;
+                }
+                
+                // Event listeners for utterance
+                utterance.onstart = function() {
+                    isPlaying = true;
+                    updateButtonStates();
+                    if (voiceType === 'female') {
+                        femaleVoiceBtn.classList.add('active', 'pulse');
+                        maleVoiceBtn.classList.remove('active', 'pulse');
+                    } else {
+                        maleVoiceBtn.classList.add('active', 'pulse');
+                        femaleVoiceBtn.classList.remove('active', 'pulse');
+                    }
+                };
+                
+                utterance.onend = function() {
+                    isPlaying = false;
+                    updateButtonStates();
+                    femaleVoiceBtn.classList.remove('active', 'pulse');
+                    maleVoiceBtn.classList.remove('active', 'pulse');
+                };
+                
+                utterance.onerror = function() {
+                    isPlaying = false;
+                    updateButtonStates();
+                    femaleVoiceBtn.classList.remove('active', 'pulse');
+                    maleVoiceBtn.classList.remove('active', 'pulse');
+                };
+                
+                // Speak the text
+                speechSynthesis.speak(utterance);
+                
+            } else {
+                alert('Your browser does not support text-to-speech functionality.');
             }
-            
-            // Special handling for CEO name variations
-            if (normalizedQuestion.includes('munsif') || normalizedQuestion.includes('lashari') || 
-                normalizedQuestion.includes('ceo') || normalizedQuestion.includes('leader')) {
-                answer = faqDatabase["who is the ceo"].answer;
-            }
-            
-            // Add assistant answer to chat
-            addMessageToChat(answer, 'assistant');
-            
-            // Speak the answer
-            speakText(answer);
         }
 
-        function addMessageToChat(message, sender) {
-            const chatContainer = document.getElementById('chatContainer');
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('chat-message');
-            messageElement.classList.add(sender === 'user' ? 'user-message' : 'assistant-message');
-            messageElement.textContent = message;
-            chatContainer.appendChild(messageElement);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+        // Function to speak Q&A answers
+        function speakAnswer(answer) {
+            speakText(answer, 'female');
         }
-
-        function speakText(text) {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-            }
-
-            currentUtterance = new SpeechSynthesisUtterance(text);
+        
+        // Function to get all text content from the page
+        function getAllPageText() {
+            const contentElements = document.querySelectorAll('.content, .caption p, h1, h2, h3, .progress-test p, .teacher-highlight p, .answer');
+            let allText = '';
             
-            // Configure voice settings
-            const { rate, pitch } = getVoiceSettings();
-            currentUtterance.rate = rate;
-            currentUtterance.pitch = pitch;
-            currentUtterance.volume = 1;
-
-            // Select voice based on gender preference
-            const voiceType = document.getElementById('voiceSelect').value;
-            const voices = speechSynthesis.getVoices();
-            const preferredVoices = voices.filter(voice => {
-                return voiceType === 'female' ? 
-                    voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('samantha') || voice.name.toLowerCase().includes('karen') :
-                    voice.name.toLowerCase().includes('male') || voice.name.toLowerCase().includes('alex') || voice.name.toLowerCase().includes('daniel');
+            contentElements.forEach(element => {
+                // Skip empty elements and hashtags
+                if (element.textContent.trim() && !element.textContent.startsWith('#') && !element.classList.contains('question')) {
+                    allText += element.textContent + '. ';
+                }
             });
-
-            if (preferredVoices.length > 0) {
-                currentUtterance.voice = preferredVoices[0];
-            }
-
-            // Event handlers
-            currentUtterance.onstart = function() {
-                isSpeaking = true;
-                document.getElementById('status').textContent = 'Speaking...';
-                document.getElementById('status').className = 'status speaking';
-            };
-
-            currentUtterance.onend = function() {
-                isSpeaking = false;
-                document.getElementById('status').textContent = 'Ready to answer questions';
-                document.getElementById('status').className = 'status';
-            };
-
-            currentUtterance.onerror = function(event) {
-                isSpeaking = false;
-                document.getElementById('status').textContent = 'Error: ' + event.error;
-                document.getElementById('status').className = 'status';
-            };
-
-            speechSynthesis.speak(currentUtterance);
-        }
-
-        function getVoiceSettings() {
-            const rate = parseFloat(document.getElementById('rateSlider').value);
-            const pitch = parseFloat(document.getElementById('pitchSlider').value);
             
-            return { rate, pitch };
+            return allText;
         }
-
-        function stopReading() {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-                isSpeaking = false;
-                document.getElementById('status').textContent = 'Stopped';
-                document.getElementById('status').className = 'status';
+        
+        // Update button states
+        function updateButtonStates() {
+            playBtn.disabled = isPlaying;
+            pauseBtn.disabled = !isPlaying;
+            stopBtn.disabled = !isPlaying && !currentUtterance;
+        }
+        
+        // Event listeners for voice buttons
+        femaleVoiceBtn.addEventListener('click', () => {
+            const pageText = getAllPageText();
+            speakText(pageText, 'female');
+        });
+        
+        maleVoiceBtn.addEventListener('click', () => {
+            const pageText = getAllPageText();
+            speakText(pageText, 'male');
+        });
+        
+        // Control buttons
+        playBtn.addEventListener('click', () => {
+            if (currentUtterance && !isPlaying) {
+                speechSynthesis.resume();
+            }
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                speechSynthesis.pause();
+                isPlaying = false;
+                updateButtonStates();
+            }
+        });
+        
+        stopBtn.addEventListener('click', () => {
+            speechSynthesis.cancel();
+            isPlaying = false;
+            updateButtonStates();
+            femaleVoiceBtn.classList.remove('active', 'pulse');
+            maleVoiceBtn.classList.remove('active', 'pulse');
+        });
+        
+        // Load voices when they become available
+        if ('speechSynthesis' in window) {
+            // Load voices immediately if available
+            if (speechSynthesis.getVoices().length > 0) {
+                console.log('Voices loaded');
+            } else {
+                speechSynthesis.onvoiceschanged = function() {
+                    console.log('Voices loaded');
+                };
             }
         }
+        
+        // Initialize button states
+        updateButtonStates();
 
-        function updateRate() {
-            const rateValue = document.getElementById('rateSlider').value;
-            document.getElementById('rateValue').textContent = rateValue;
-            if (isSpeaking && currentUtterance) {
-                currentUtterance.rate = parseFloat(rateValue);
-            }
-        }
-
-        function updatePitch() {
-            const pitchValue = document.getElementById('pitchSlider').value;
-            document.getElementById('pitchValue').textContent = pitchValue;
-            if (isSpeaking && currentUtterance) {
-                currentUtterance.pitch = parseFloat(pitchValue);
-            }
-        }
-
-        // Load available voices when they are ready
-        speechSynthesis.onvoiceschanged = function() {
-            const voices = speechSynthesis.getVoices();
-            console.log('Available voices:', voices);
-        };
-
-        // Initialize slider values
-        document.getElementById('rateValue').textContent = document.getElementById('rateSlider').value;
-        document.getElementById('pitchValue').textContent = document.getElementById('pitchSlider').value;
-
-        // Allow pressing Enter in the input field
-        document.getElementById('questionInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                askQuestion(this.value);
+        // Auto-scroll to AI Assistant section
+        document.addEventListener('DOMContentLoaded', function() {
+            const aiSection = document.querySelector('.ai-assistant');
+            if (aiSection) {
+                aiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     </script>

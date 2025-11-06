@@ -1,0 +1,142 @@
+
+
+
+
+Max Green Skill Development Organization — History (2010–2025)
+
+
+Founded: 2010
+
+Type: Non-profit; education & skills (formal, non-formal, vocational, social welfare)
+
+Core Areas (Sindh): Karachi, Mirpurkhas, Umerkot, Tharparkar, Jamshoro (and nearby districts)
+
+Key Partners (selected): Sindh Education Foundation (SEF), Directorate of Literacy & Non-Formal Education (SELD), BBSHRRDB, NAVTTC, STEVTA, Trade Testing Board
+
+Flagship NFE Center: Makhdoom Bilawal (Karachi) for underprivileged learners (approx. ages 9–20)
+
+Academic Structure: Package A (Grades 1–2), Package B (Grades 2–3), Package C (Grades 4–5) with curriculum in English/Urdu/Math; phonics-based English with CVC/short/long vowels & sentence building
+
+Phase-wise Timeline
+2010–2014: Foundation & Early Outreach
+
+MGSDO established with a mission to empower communities through education, skills, and social welfare.
+
+Initial literacy and community classes begin in Karachi’s underserved neighborhoods.
+
+Start of non-formal education (NFE) pilots; early coordination with local volunteers and teachers.
+
+2015–2018: Program Expansion & Partnerships
+
+NFE classes scale to additional localities (e.g., Mirpurkhas, Umerkot, Tharparkar).
+
+Partnership building with provincial/skill bodies (e.g., SEF, Directorate of Literacy & NFE, BBSHRRDB, NAVTTC, STEVTA).
+
+Start formalizing teacher appointment letters, collaboration agreements, and testing/certification pathways via public boards.
+
+Community welfare add-ons: parent meetings, awareness sessions, and basic livelihoods support.
+
+2019–2021: Systems, Curriculum & Certification Pathways
+
+Curriculum structuring for Package A/B/C with weekly → daily lesson planning, phonics and foundational numeracy.
+
+Focus on teacher methodology, classroom resources, and simple M&E (monitoring & evaluation) routines.
+
+Learner documentation improves (admissions, exam schedules, letters to departments like NADRA for age corrections, etc.).
+
+Strengthened links to testing & trade boards for vocational tracks.
+
+2022–2024: Digital Presence & Operational Documentation
+
+Significant work on digital identity and multi-site deployment (Netlify sub-sites, Hostinger, custom domain).
+
+Purchase & setup of maxgreenskills.org; experimenting with DNS (Cloudflare), subdomains, and site hosting.
+
+Creation of official letters, agreements, forms, staff/infrastructure tables, and academic calendars/syllabi.
+
+Roll-out of assessment timetables, academic support plans, and refined lesson planning (objectives, activities, resources, evaluation).
+
+Exploration of AI/tech for ops: prompts, chat assistants, and lightweight web apps.
+
+2025 (to Nov 2, 2025): Consolidation, Visibility & SEF Engagement
+
+Continued website work (multi-page responsive templates; social/media sections; WhatsApp quick-contact).
+
+Stakeholder engagement:
+
+Meetings highlighted with SEF Karachi Region leadership (e.g., Mr. Kashif—District Head; Mr. Ashfaq Mirani—Regional Head) to deepen collaboration for quality education and skills.
+
+Ongoing refinement of the NFE center at Makhdoom Bilawal (9–20 age group); emphasis on foundational literacy/phonics, basic math, and skill development orientation.
+
+Public-facing communication improved (news/events posts, gallery, and partnership updates).
+
+Continued work on School Establishment Plan for SEF and long-term formal school expansion roadmap (5–15 year lens).
+
+Program Pillars (Current)
+
+Non-Formal Education (NFE): Accelerated literacy & bridging for out-of-school youth (Packages A–C).
+
+Formal Education (Roadmap): Step-wise plan to expand grades and stabilize school operations with SEF alignment.
+
+Skill Development: Linkages to NAVTTC/STEVTA/Trade Testing Board for vocational pathways (dressmaking, IT assistant, beauty therapy, Python/AI basics, etc.).
+
+Social Welfare & Community Work: Parent engagement, counseling, dropout mitigation, and support drives.
+
+Digital & AI Enablement: Websites, content, basic AI tools for instruction/support, and structured documentation workflows.
+
+Governance & Operations (Ongoing Practices)
+
+Documentation: Teacher appointment letters, collaboration MoUs, bank letters for facilitators, exam schedules, and fee/security correspondences (e.g., BBSHRRDB refunds).
+
+Academic Quality: Weekly → daily lesson plans; smart objectives; assessments; monitoring visits; parent meetings.
+
+Compliance: Coordination with SEF/Directorate for NFE compliance; ID/age corrections via relevant departments.
+
+Visibility: Social media, news & events, and photo galleries to showcase progress and partnerships.
+
+Selected 2025 Highlights (Jan–Nov 2, 2025)
+
+Website/domain & DNS troubleshooting and improvements (Cloudflare ↔ Hostinger ↔ Netlify flows).
+
+Content upgrades: About, Programs (Formal/NFE/Curriculum), Skill Development, Social Activities, Research, Media, Team, and AI voice assistant exploration on the site.
+
+SEF engagement meetings (Kashif/Ashfaq Mirani) emphasizing collaboration for quality and scale.
+
+Refinement of English phonics curriculum and daily lesson flow; continued use of Packages A/B/C.
+
+Looking Ahead (2026 Roadmap — High Level)
+
+Stabilize one flagship formal campus aligned with SEF standards while scaling NFE satellites.
+
+Strengthen teacher training (phonics, classroom management, remedial pathways).
+
+Formalize vocational tracks with clear certification & placement guidance.
+
+Complete monitoring & evaluation dashboards; light data collection for outcomes.
+
+Mature the digital platform (content, admissions interest forms, volunteer/donor onboarding, AI assistant for FAQs).
+
+Contact (Public)
+
+Email: info@maxgreenskills.org
+ | maxgreensdi9@gmail.com
+
+Website: maxgreenskills.org (plus active deployment mirrors you maintain)
+
+Karachi Address (as shared): Shaheed Makhdoom Bilawal Society, near Sachal Goth & Safoora Chowrangi, Ghazi Goth, Karachi 75300
+
+Phone (as shared): +92 333 3900728 | +92 370 3926106
+
+مختصر اُردو خلاصہ (آپ کی پسند کے مطابق)
+
+2010–2014: تنظیم کی بنیاد، نان-فارمل کلاسز کا آغاز۔
+
+2015–2018: اضلاع میں توسیع، SEF و دیگر اداروں سے پارٹنرشپ۔
+
+2019–2021: نصاب/پیکیجز A/B/C، لیسن پلاننگ، سرٹیفکیشن راستے۔
+
+2022–2024: ویب سائٹس/ڈومین، دستاویزی نظام، ایم این ای اور شیڈولز۔
+
+2025: SEF لیڈرشپ سے ملاقاتیں، ویب/AI میں بہتری، مکدوم بلاول NFE سینٹر پر فوکس۔
+
+اگلا قدم: ایک مضبوط فل-ٹائم اسکول + NFE سیٹلائٹس، ٹیچر ٹریننگ، ووکیشنل سرٹیفکیشن، ڈیجیٹل پلیٹ فارم۔

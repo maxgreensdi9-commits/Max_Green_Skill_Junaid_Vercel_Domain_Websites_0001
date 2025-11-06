@@ -1,0 +1,1385 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Green Skill Development Organization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-green: #2e7d32;
+            --dark-green: #1b5e20;
+            --light-green: #4caf50;
+            --accent-green: #66bb6a;
+            --light-bg: #f8fdf8;
+            --white: #ffffff;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-green);
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            cursor: pointer;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green), var(--light-green));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M28.1,36.9c1.2,0.8,2.7,1.3,4.2,1.3c1.5,0,2.9-0.5,4.1-1.3l13-8.7c2.6-1.7,4.1-4.6,4.1-7.7c0-3.1-1.5-6-4.1-7.7l-13-8.7 c-2.6-1.7-6-1.7-8.6,0L15.5,12.8c-2.6,1.7-4.1,4.6-4.1,7.7c0,3.1,1.5,6,4.1,7.7L28.1,36.9z M63.9,63.1c-1.2-0.8-2.7-1.3-4.2-1.3 c-1.5,0-2.9,0.5-4.1,1.3l-13,8.7c-2.6-1.7-4.1-4.6-4.1-7.7c0-3.1,1.5,6,4.1,7.7l13,8.7c2.6,1.7,6,1.7,8.6,0l13-8.7 c2.6,1.7,4.1,4.6,4.1,7.7c0-3.1-1.5-6-4.1-7.7L63.9,63.1z M84.5,36.9l-13-8.7c-2.6-1.7-6-1.7-8.6,0l-13,8.7 c-2.6-1.7-4.1-4.6-4.1-7.7c0-3.1,1.5-6,4.1-7.7l13-8.7c1.2-0.8,2.7-1.3,4.1-1.3c1.5,0,2.9,0.5,4.1,1.3l13,8.7 c2.6,1.7,4.1,4.6,4.1,7.7C88.6,41.5,87.1,38.6,84.5,36.9z"/></svg>');
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-size: 3rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-green);
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 1.8rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--light-green);
+        }
+
+        .visit-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .visit-text {
+            line-height: 1.7;
+        }
+
+        .visit-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .team-members {
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .team-members h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .member:hover {
+            background: #e8f5e9;
+        }
+
+        .member i {
+            color: var(--light-green);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item img.loading {
+            opacity: 0.7;
+            background: #f0f0f0;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .image-caption {
+            transform: translateY(0);
+        }
+
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .hashtag {
+            background: #e8f5e9;
+            color: var(--primary-green);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .link-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .link-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            word-break: break-all;
+        }
+
+        .link-list a:hover {
+            color: var(--primary-green);
+        }
+
+        .link-list a i {
+            color: var(--light-green);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .leader-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .leader-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .leader-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--light-green);
+            font-size: 1.3rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            border-radius: 50%;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--light-green);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #c8e6c9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #c8e6c9;
+            font-size: 0.9rem;
+        }
+
+        /* AI Voice Assistant Styles */
+        .voice-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .voice-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .voice-btn.listening {
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .voice-panel {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .voice-panel.active {
+            display: flex;
+        }
+
+        .voice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .voice-title {
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .voice-output {
+            height: 150px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .voice-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .voice-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .voice-input button {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voice-commands {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .voice-commands h4 {
+            margin-bottom: 8px;
+            color: var(--primary-green);
+        }
+
+        .command-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+
+        .command-item {
+            padding: 5px;
+            background: #f0fdf4;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .visit-details {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .voice-panel {
+                width: 280px;
+                right: -20px;
+            }
+            
+            .voice-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .image-gallery, .links-grid, .leadership-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 30px 15px;
+            }
+            
+            .content-card, .contact-info {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .voice-panel {
+                width: 260px;
+                right: -40px;
+            }
+            
+            .image-gallery, .links-grid, .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo">🌿</div>
+                <span>MGSDO</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#monitoring">Monitoring</a>
+                <a href="#programs">Programs</a>
+                <a href="#team">Team</a>
+                <a href="#links">Links</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">🌿</div>
+            <div>
+                <h1>Max Green Skill Development Organization</h1>
+                <p class="tagline">Empowering Lives | Building Futures | Transforming Communities</p>
+            </div>
+        </div>
+        <div class="intro-text">
+            Explore our programs and media. Use the AI Voice Assistant to ask about links, sections, or to read details aloud.
+        </div>
+        <div class="highlight">Lighting the Path of Learning in Tharparkar 🌟</div>
+    </header>
+
+    <section>
+        <!-- Monitoring Visits Section -->
+        <div class="content-card" id="monitoring">
+            <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Surprise Monitoring Visits – Lighting the Path of Learning in Tharparkar</h2>
+            
+            <div class="visit-details">
+                <div class="visit-text">
+                    <p>In a continued effort to ensure quality education and impactful learning experiences, CEO Max Green Skill Development Organisation, Mr. Munsif Lashari, and District Education Officer Literacy (DEO) Mr Kastoor Chand along with Program Manager NFE, Mr. Hamza Khalid, conducted surprise monitoring visits to various Non-Formal Education (NFE) Centres across District Tharparkar.</p>
+                    
+                    <p>The purpose of these visits was to review the progress of the centers, evaluate learner attendance, and observe community participation — key elements that ensure sustainability and strengthen the spirit of local ownership in education initiatives.</p>
+                    
+                    <p>During the visits, the team expressed satisfaction over the dedication of learners and facilitators while encouraging continuous improvement to make learning more engaging and effective for children and adults alike.</p>
+                    
+                    <p>These NFE Centres are being operated under the management of Max Green Skill Development Organisation, with the valuable support of the Directorate of Literacy and Non-Formal Education, Government of Sindh.</p>
+                    
+                    <p>📖 <strong>Max Green remains committed to spreading the light of knowledge across every corner of Tharparkar</strong> — empowering minds, nurturing dreams, and transforming communities through education. ✨</p>
+                </div>
+                
+                <div class="team-members">
+                    <h3><i class="fas fa-users"></i> Monitoring Team</h3>
+                    <div class="member">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <strong>Mr. Munsif Lashari</strong><br>
+                            <span>CEO, Max Green Skill Development Organisation</span>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>
+                            <strong>Mr. Kastoor Chand</strong><br>
+                            <span>District Education Officer Literacy</span>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <i class="fas fa-user-cog"></i>
+                        <div>
+                            <strong>Mr. Hamza Khalid</strong><br>
+                            <span>Program Manager NFE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjI0J9oeS86xLVdmhU3mdsYqk7W5Itvh3KNwMnzfNTpxHHGOsDB5vW6mfyG4VZOaa50a2GTEkZF-Z5WRYjWEk5OVgzc04595EIhslL4T6PlJNrohOZiD1jXQFbWr8KanzG-11OmL4jobjeklcHNByWhZitTUtFWpcnV_3Gi3Ix2hW7FZUOjv-jb6O5qU8PC" alt="Monitoring Visit to NFE Centre" loading="lazy">
+                    <div class="image-caption">Team visiting an NFE Centre in Tharparkar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg58XOE009tFlUo-ryN8lCAt0gy1vXwqpJXLT85rtme2_8QhLYdj8BoDpVn4i9tyIXCHZD_ZqBx9_Bd93Che1CD144Xw572Z9ySe663MBw5erjksaqUelsLC-o3bS0KN42uSEKYnmb58Rbni7R7WPsq6pQZw0DbjrotOC71-PYKwpbYvWPmaYnBYyXUTwP5" alt="Classroom Interaction" loading="lazy">
+                    <div class="image-caption">Engaging with students during the visit</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgr5Eg2pLGnwXw_Tko_3gjNjzzs6zovyV3GMiUTUnbN3yY4zM-4CHdDcozRXcTwReLclsriS1h1dVSuhV5Rqrgbhx6B4G3tYNRyQrrGhbVSnQVE2Bgo6AqSx2X096PYt8PtAZ0CewMk2SQAVlC_FmusC41cy7TtQrx4boh8RuBZpMVO3gLxsY_mQeFpZoa4" alt="Discussion with Facilitators" loading="lazy">
+                    <div class="image-caption">Discussion with NFE facilitators</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEikyqnRBbd-sjjMn03wZQ25HAsGD8pD_2Ur9koX94I7sAM65vB-mOmtNsSymdDdh1kkJaO5-TVaHlckTuU21l8nbzL25CtlBtW3V6yJ1XVgdPYLPJz8mqPIKXc2NfO2u-Qsh6Rt0yz2oX6-d1ZIw-9mMiyjpB0zAtYBUhaKzk_VTxhjdv0S4xRWJRY_eU1O" alt="Student Activities" loading="lazy">
+                    <div class="image-caption">Observing student learning activities</div>
+                </div>
+            </div>
+            
+            <div class="hashtags">
+                <div class="hashtag">#MaxGreenSkillDevelopmentOrganisation</div>
+                <div class="hashtag">#NFE</div>
+                <div class="hashtag">#EducationForAll</div>
+                <div class="hashtag">#Tharparkar</div>
+                <div class="hashtag">#MonitoringVisit</div>
+                <div class="hashtag">#GovernmentOfSindh</div>
+                <div class="hashtag">#NonFormalEducation</div>
+                <div class="hashtag">#LightOfLearning</div>
+            </div>
+        </div>
+
+        <!-- Skill Development Images -->
+        <div class="content-card" id="programs">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Our Skill Development Programs</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEibSgLFZIdh16EnnPHwKJ0IYshRGe6bOeaRX86QkHQNoAyyWiNMqM8Q4Iije-B6dHE6yYGeRkMm8RR-EbpQ8VFonVuNq6lyvTvD1OnJs8uU6kZohDtejFt99TUhv5xwyPjD4yo5IWfkQW9CnuJcI3zOXksoXPOTqKETBhLvDOfwoaXdTxxM2bb9YOcqg7lx" alt="Skill Development Program" loading="lazy">
+                    <div class="image-caption">Vocational training session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjnFaGQc9zfDc3JujQdB1viF98T28Ck6dm7n0_bIzGevu-i13WVbu5VTbYZ_S_CEb-xvr0ANzh3ijEaoM_fcAS8qmZa2KBM-PxGrB0Notnk6lxAjPfMKE9CAwFWRrzcKAnhd7ZYt4y9CgXoaHgXbAUv-PakcxHCmtqWgmEgLU7lfmt8e4Y7K02kOck6jy0S" alt="Technical Training" loading="lazy">
+                    <div class="image-caption">Technical skills development</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgxfaRWSaqFzGXaBn_HRb_s5joFUQbu-49O3dMEhfPKKnB6_BlrqMs92uP8YmqIDaCaZNjNnOSlRZA7FWoeTeVeGfE5m4Zv9gv-lPvTPzH1r6uxmSYqrl_aB4-lkIm8uEOfzNQ3lcsqYKrN4PV4iw7-xBGTMnS0sZl9cT93y2KJB61uSGnoHe9qaFjUog2V" alt="Practical Learning" loading="lazy">
+                    <div class="image-caption">Hands-on practical learning</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiSnvK4h9nHUKSvQHXJSXGcrAZ50Z_uWR9GpIWvBNwGLJSgf-M7-Gv7SjX6segMw02SiRTOx5r9QE1KIETTHfQKbIBYaH_dL0aP14u1YVpXN8yID9CPCltpK39AGr1sCcvmk6T-kBSAVN-pROjqz_zBBgwW1d12xlCsq5TMk9clzHPfNRsN678KhWOp-PaG" alt="Skill Certification" loading="lazy">
+                    <div class="image-caption">Certificate distribution ceremony</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Management Images -->
+        <div class="content-card" id="team">
+            <h2 class="section-title"><i class="fas fa-users-cog"></i> Team Management</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEipXKrsGxbwxKkBGkbRypq_4yNArNckvCPu1-FeQI0qDbmuzeCMxfjFHPj7dSDJfh_ZnJuUWf9Ag7UEu6rrOZz-5AkfpQAMvd8yX0EJ2tcXILOPmrBWNf_lrSK3WQ75RogEX23MzJMmPh5dyL3juWeweHW9lBB5kxleJKDp0hawigIFuWU3AvWKr8ro8qXd" alt="Team Management" loading="lazy">
+                    <div class="image-caption">Management team meeting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg6yLj3bT6zoEVXrgeMDj95dKrrgedMS9O8iUvUzy3m0vB1WfKh4AtIXD1r1J96V12c_jPQhPItSNPa4pjfArhAiMci5_xDE_Nx6VFYFQsb-qDXuO6K4cfAhpdc0koi2o723tDU7TuLBjCzFyHvwDmj9PAlSY7X1m_M45oXIxwqv6lyo8zNKpgC14Ko9qzJ" alt="Team Coordination" loading="lazy">
+                    <div class="image-caption">Team coordination session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgciba2-grpEZq_FmfjisZri9sYBfvqMFnh_cK0D32Q97FVSHVmixVgCJdGZkq9h5DyF1lRzqQxyscvPZYYy3vx_yA134A51oDgZ-ZwgRdAvLt9TSbN1HpB-rWzHB2R0HtaYPbK0ndp8i-IbvQUVG4hObzK_BSTeeO7_KzFGTP1uXpw7NweOdy_H4AfeYHC" alt="Strategic Planning" loading="lazy">
+                    <div class="image-caption">Strategic planning meeting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhcgv9WBdwAuQ43lDPfAmIBimsoFV9dJeIIbFPKR_BUJcq0iCwrJXaC5WdoKcnOC7PAASY4dui_1Gi9NdXiltUAyev0-w7OWQtGh4IiXSsX3TupuW2uF3298plGkqmeRHmrcwZukZPCaYyjixcM63Lw5WSR0fF6r19MCcI3QsZpmSvzW7zYHskIBkQcluPc" alt="Team Building" loading="lazy">
+                    <div class="image-caption">Team building activity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Activities Images -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-hands-helping"></i> Social Activities</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjsMC0P7lq7fX2LOuqws_4j3sTTos06iFUkBEKGfIWRhDbq_vYF3J0Q1jGsZmPpS-Fe72K2Lrprl3rYUafDj831fbh0wR-oyw223ha8PlNub6rQrZOBhzU0ciau6wsGSReXHaYF8cJL-xEO0C73kJr7bOmstv_uDuRs2Z6n1KnhNkHONRNGC77ad7E7DGdt" alt="Community Outreach" loading="lazy">
+                    <div class="image-caption">Community outreach program</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEglebc6mS4Hrbn60R15qd05qqrdkx-laZu4PT-p3N_ZqXgUbgZMfQlgCGL78rTFV0TU_ZY42r3HDqX-6hFceO_KE-iSdK6U0gGVruPDS_HskOro_mbdgvuSup1DhcoSRuu7_rEC8bSX9hOl32tOMlnX5_4I3JJuy8yUJLH5ojdCX6nQyXgwgD5dUC4E7SJ3" alt="Social Event" loading="lazy">
+                    <div class="image-caption">Social awareness event</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjR7tdX6Fz6asCiZZtE9iFvsM24AccUTESc2z4c-xofdlr7n2A1rXdfChMlYvUshAs0h--BoJJGGIlbQ3GhVddAdFCl4NbKI-1criTy2ekxkDODHUYCnc4R6MzI4rxuHuzDcdZOpS80it6SEmTkv8tBK41CdYFK7gf5XTbKB8PjJjvZD1XvJwFxCL5EmY_B" alt="Volunteer Work" loading="lazy">
+                    <div class="image-caption">Volunteer community work</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEimm2SaExMs7qR20l6hHetop1qR81ihPP79fHt_GRmyxpGrwlkFIMxiTCjwZbpCkqYwdgZ8pUXkYNh29-TqN4TsEIwcHmF0sV5_juAGOdk045ErsA4hftne3lwuU4rFasTkW3ZZwKa8ZT63jG-iZW_7-DOjM89XwWmVUuDAWRnYXzfnbJHTdfq4Osd2UTyN" alt="Social Campaign" loading="lazy">
+                    <div class="image-caption">Social campaign activity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Skills Images -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Our Skills Development</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgRql_MGKlZvyJK2M0Uu6xGvZne35r046JMcWHGq6UAuwZNjyjQ0jmtasVyC32MvOZaD6RTXH2URU9ZhySLdBXFI7S_JSEy9uyKULUqgWbrgZpiimz5gAVk6p1mM_q1HsYhPTW5y23iRfM45_7VmkhJ0zD73UED9viyvJQ261gmhoCLk6-9VQoIIAtoEr2s" alt="Technical Skills" loading="lazy">
+                    <div class="image-caption">Technical skills training</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjTCjv4-d8R-gl9z1NdxlLdaCzZcjTFlE2vVf5DvwnBhVPZQDEfaI0Y4r1shNmrbb1B7hm0RncKuYQLPGWJtG2GrrckdHAGDp6IvybfkpZXJfB00A57AgfG_8HgHuq1MzML77w9xzcwKuuPLQWtOES4u1wSSLUbZj-lRVX8CXU-wd_WKDa-dDKgbLxe4AOB" alt="Vocational Training" loading="lazy">
+                    <div class="image-caption">Vocational training session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj4HH6_NUZc57TIOKPbp1ngxptmK6lURSiY4A3H0nTJ_iovl2ZvV0IGrmclzq2pCDvJWGkX9hJP2wda7rO89yOACOcjoyltbJw-oquPg2UGa-1H9LL7gScDndFOLab15VmykDlTnU4a4AxEZvNFSWaw_WaudYVoySek_sk9f4Hz3EV7wMeq7k7_KuMkSXgJ" alt="Skill Workshop" loading="lazy">
+                    <div class="image-caption">Skill development workshop</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjrHG1-mC2YRMo29tBJR9oFHNgE21fHGUhHFOf6Atq1IKgLAtCv7l2qyqlArhA9CuX3utr-LkLzNGhCcYFcZcxMUDoOU9Gw5myIn_fMJLRoQOzErIg8N6-FjLh66nGYmIUQ76t6G28gdkW-Gg6hvxSZVgc3uF1MvN9NWwTcIQtLIFpw_dSNaRCs0tMXBqpS" alt="Practical Training" loading="lazy">
+                    <div class="image-caption">Practical training session</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meetings Images -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-handshake"></i> Meetings & Profiles</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhRyAj1QM85N1rfz2lsxrPE6SPZyBjVpkijFeuLAUwIN6CXmzSiNUcWkw-xMybyxqz37HzrAjidVsiUi0MPnStVwnhfG6YKVjaUHJ5ljBywYlAM8HEu4DCLg2Ti5bV-IVZC3g2IWRw57l2eKH6Cz980ISsr5D_D_ldJPYTr87O8T8nDGdtVr5WKBik35E1K" alt="Strategic Meeting" loading="lazy">
+                    <div class="image-caption">Strategic planning meeting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjpoRjuHARq0nZW9tneONsH7bv0Bg9qgxLB9E8ACrJkj_0itSMoVRbaq67jGHtJ9ALGS1BwIGBQHy0-epVjSHEjRvLNOBqXpGIdfMgJfMyKFMOS7nbVyuR_BaLWCgIcB6dP3kNvQPVKsAalwrrAFXVXvQ8efOKOE0FZQYQX9XH5UYq-8bVblNevJp6LiOvH" alt="Team Meeting" loading="lazy">
+                    <div class="image-caption">Team coordination meeting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjtfxkVvTUNLuiUu0HvoDkmHwss8PBT-6X2Ru2Ji-OmfkU0JgjWbDaDANbAHE2t8kI1vAilPFJr5x3VgQvQipLO_UJgV33kIy3ZIQsT69JTp_e0IqUNHaz0EVy4Usi2rVVIYD0bQVVaeQdc4Fv3zkd4lwwkh81W9DusRKr4Aw41UzpFPGB0pSnG1Pw08JkL" alt="Partnership Meeting" loading="lazy">
+                    <div class="image-caption">Partnership development meeting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhT3sxi9vfKWKe1ZBwoZyno-kS4iPUhAXoiaXW0aFofKciENUAky-jTRJfZbdeR0AdQ6lLj9YkRm3SCxWpjsVkRljc_YLGGXD1jsv-n_OJ_ENWSiiC4WDEt1Y3QeTRBWK47bRT-xTQniRpJniBJ-IXdYwHN06kpVv8wT38pSpxKKAafm-9P8NQEwqCdhnpJ" alt="Stakeholder Meeting" loading="lazy">
+                    <div class="image-caption">Stakeholder engagement meeting</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ChatGPT & Facebook Links -->
+        <div class="content-card" id="links">
+            <h2 class="section-title"><i class="fas fa-robot"></i> ChatGPT & Facebook Links</h2>
+            
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3><i class="fas fa-robot"></i> ChatGPT Assistants</h3>
+                    <ul class="link-list">
+                        <li><a href="https://chatgpt.com/g/g-68f9929ab908819195b3e5be3d962708-max-green-skill-development-organization" target="_blank"><i class="fas fa-external-link-alt"></i> ChatGPT Assistant 1</a></li>
+                        <li><a href="https://chatgpt.com/g/g-68f9972f09808191a6ff93436d1f92bc-max-green-skill-development-organization" target="_blank"><i class="fas fa-external-link-alt"></i> ChatGPT Assistant 2</a></li>
+                        <li><a href="https://chatgpt.com/g/g-68f99baefc1481919e2409625cb1d052-max-green-skill-development-organization" target="_blank"><i class="fas fa-external-link-alt"></i> ChatGPT Assistant 3</a></li>
+                        <li><a href="https://ai.studio/apps/drive/1SPYZm8ntwxFsHrmoklxTh4N9xoB4v3oZ" target="_blank"><i class="fas fa-external-link-alt"></i> AI Studio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-card">
+                    <h3><i class="fab fa-facebook"></i> Facebook Pages</h3>
+                    <ul class="link-list">
+                        <li><a href="https://www.facebook.com/profile.php?id=100065260100181" target="_blank"><i class="fab fa-facebook"></i> Main Facebook Profile</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100065260100181&sk=about" target="_blank"><i class="fab fa-facebook"></i> About Section</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100065260100181&sk=mentions" target="_blank"><i class="fab fa-facebook"></i> Mentions</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100065260100181&sk=reels_tab" target="_blank"><i class="fab fa-facebook"></i> Reels</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100065260100181&sk=photos" target="_blank"><i class="fab fa-facebook"></i> Photos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deployment Links -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-server"></i> Deployment Websites</h2>
+            
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3><i class="fas fa-link"></i> Primary Websites</h3>
+                    <ul class="link-list">
+                        <li><a href="https://maxgreenskills.de/" target="_blank"><i class="fas fa-external-link-alt"></i> MaxGreenSkills.de</a></li>
+                        <li><a href="https://midnightblue-wasp-862327.hostingersite.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Hostinger Site</a></li>
+                        <li><a href="https://readdy.link/preview/fcbc410a-a3a4-4946-b189-593512066446/3457858" target="_blank"><i class="fas fa-external-link-alt"></i> Readdy Link</a></li>
+                        <li><a href="https://maxgreenskills.org/" target="_blank"><i class="fas fa-external-link-alt"></i> MaxGreenSkills.org</a></li>
+                        <li><a href="https://maxgreenskills.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify Main</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-card">
+                    <h3><i class="fas fa-server"></i> Netlify Deployments (000-009)</h3>
+                    <ul class="link-list">
+                        <li><a href="https://maxgreenskills000.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 000</a></li>
+                        <li><a href="https://maxgreenskills0000.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0000</a></li>
+                        <li><a href="https://maxgreenskills00001.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 00001</a></li>
+                        <li><a href="https://maxgreenskills0001.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0001</a></li>
+                        <li><a href="https://maxgreenskills0002.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0002</a></li>
+                        <li><a href="https://maxgreenskills0003.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0003</a></li>
+                        <li><a href="https://maxgreenskills0004.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0004</a></li>
+                        <li><a href="https://maxgreenskills0005.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0005</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-card">
+                    <h3><i class="fas fa-server"></i> Netlify Deployments (006-014)</h3>
+                    <ul class="link-list">
+                        <li><a href="https://maxgreenskills0006.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0006</a></li>
+                        <li><a href="https://maxgreenskills0007.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0007</a></li>
+                        <li><a href="https://maxgreenskills0008.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0008</a></li>
+                        <li><a href="https://maxgreenskills0009.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0009</a></li>
+                        <li><a href="https://maxgreenskills0010.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0010</a></li>
+                        <li><a href="https://maxgreenskills0011.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0011</a></li>
+                        <li><a href="https://maxgreenskills0012.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0012</a></li>
+                        <li><a href="https://maxgreenskills0013.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0013</a></li>
+                        <li><a href="https://maxgreenskills0014.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Netlify 0014</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Leadership & Contact</h2>
+            
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Munsif Ali Lashari</h3>
+                    <p>Chief Executive Officer (Since 2010)</p>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Imtiaz Ali Chandio</h3>
+                    <p>Director (Since 2010)</p>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Hamza Khalid Arain</h3>
+                    <p>Director Admin & Human Resource (Since 2024)</p>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Ana Sehar</h3>
+                    <p>Director Accounts (Since 2020)</p>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Tariq Anwar</h3>
+                    <p>Director Media (Since 2016)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info" id="contact">
+            <h2 class="section-title"><i class="fas fa-address-card"></i> Contact Information</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Head Office:</strong><br>
+                        Shaheed Makhdoom Bilawal Society, Ghazi Goth,<br>
+                        Karachi – 75300, Sindh, Pakistan
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email:</strong><br>
+                        info@maxgreenskills.org<br>
+                        maxgreensdi9@gmail.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Contact:</strong><br>
+                        +92 333 3900728<br>
+                        +92 370 3926106
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100065260100181" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Programs</a>
+            <a href="#">NFE Centers</a>
+            <a href="#">Success Stories</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2010–2025 Max Green Skill Development Organization | Designed by MGSDO Digital Team</p>
+            <p>Committed to spreading the light of knowledge across every corner of Tharparkar</p>
+        </div>
+    </footer>
+
+    <!-- AI Voice Assistant -->
+    <div class="voice-assistant">
+        <div class="voice-panel" id="voicePanel">
+            <div class="voice-header">
+                <div class="voice-title">MGSDO Voice Assistant</div>
+                <button class="close-btn" id="closePanel"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="voice-output" id="voiceOutput">
+                <p>Hello! I'm your MGSDO assistant. How can I help you today?</p>
+                <p>Try asking about our CEO, programs, courses, or how to apply!</p>
+            </div>
+            <div class="voice-input">
+                <input type="text" id="textInput" placeholder="Type your question here...">
+                <button id="textSubmit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div class="voice-commands">
+                <h4>Try These Commands:</h4>
+                <div class="command-list">
+                    <div class="command-item">"Who is the CEO?"</div>
+                    <div class="command-item">"What is NFE?"</div>
+                    <div class="command-item">"Recent events"</div>
+                    <div class="command-item">"Courses available"</div>
+                    <div class="command-item">"How to apply?"</div>
+                    <div class="command-item">"Program benefits"</div>
+                </div>
+            </div>
+        </div>
+        <button class="voice-btn" id="voiceBtn">
+            <i class="fas fa-microphone"></i>
+        </button>
+    </div>
+
+    <script>
+        // Voice Assistant Elements
+        const voiceBtn = document.getElementById('voiceBtn');
+        const voicePanel = document.getElementById('voicePanel');
+        const closePanel = document.getElementById('closePanel');
+        const voiceOutput = document.getElementById('voiceOutput');
+        const textInput = document.getElementById('textInput');
+        const textSubmit = document.getElementById('textSubmit');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Mobile menu functionality
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // AI Assistant Questions and Answers Database
+        const assistantQA = {
+            "who is the ceo": "Sir Munsif Ali Lashari is the Chief Executive Officer of Max Green Skills Development Organization. He has been leading the organization since 2010 with a vision to empower communities through education and skill development.",
+            
+            "what is non formal education": "Non-Formal Education at Max Green is a flexible learning system designed for those who cannot access formal education. It focuses on practical skills, literacy, and vocational training tailored to community needs.",
+            
+            "recent event details": "CEO Sir Munsif Ali Lashari recently participated in the Letter of Understanding Signing and Opening Ceremony of 133 Non-Formal Education Centers at Beach Luxury Hotel, Karachi. This event celebrated a powerful partnership for advancing education.",
+            
+            "what courses are available": "We offer various Non-Formal Education courses including: Basic Literacy & Numeracy, Vocational Training (tailoring, computer skills), Life Skills, Digital Literacy, Environmental Education, and Community Development programs.",
+            
+            "how to apply": "To apply for Non-Formal Education, visit our center with your CNIC/B-Form, 2 passport photos, and basic educational documents (if any). Our team will guide you through the simple registration process.",
+            
+            "what are the benefits": "Benefits include: Flexible learning schedules, Practical skill development, No age restrictions, Community-based learning, Certificate upon completion, and Improved employment opportunities.",
+            
+            "what is the duration": "Program duration varies: Basic courses (3-6 months), Vocational training (6-12 months), Specialized skills (3-9 months). We offer flexible timing to accommodate your schedule.",
+            
+            "is there any fees": "Most Non-Formal Education programs are FREE! We believe in accessible education for all. Some specialized vocational courses may have minimal material costs."
+        };
+
+        // Speech Recognition Setup
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        let isListening = false;
+
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function() {
+                isListening = true;
+                voiceBtn.classList.add('listening');
+                addToOutput("Listening...");
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                addToOutput(`You said: ${transcript}`);
+                processVoiceCommand(transcript);
+            };
+
+            recognition.onerror = function(event) {
+                addToOutput(`Error: ${event.error}`);
+                isListening = false;
+                voiceBtn.classList.remove('listening');
+            };
+
+            recognition.onend = function() {
+                isListening = false;
+                voiceBtn.classList.remove('listening');
+            };
+        } else {
+            addToOutput("Speech recognition not supported in this browser.");
+        }
+
+        // Toggle voice recognition
+        voiceBtn.addEventListener('click', function() {
+            if (!SpeechRecognition) {
+                addToOutput("Speech recognition is not supported in your browser.");
+                return;
+            }
+
+            if (isListening) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+            
+            // Show the voice panel when starting to listen
+            if (!voicePanel.classList.contains('active')) {
+                voicePanel.classList.add('active');
+            }
+        });
+
+        // Close voice panel
+        closePanel.addEventListener('click', function() {
+            voicePanel.classList.remove('active');
+            if (isListening) {
+                recognition.stop();
+            }
+        });
+
+        // Text input submission
+        textSubmit.addEventListener('click', function() {
+            const text = textInput.value.trim();
+            if (text) {
+                addToOutput(`You typed: ${text}`);
+                processVoiceCommand(text);
+                textInput.value = '';
+            }
+        });
+
+        textInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                textSubmit.click();
+            }
+        });
+
+        // Add message to output
+        function addToOutput(message) {
+            const p = document.createElement('p');
+            p.textContent = message;
+            voiceOutput.appendChild(p);
+            voiceOutput.scrollTop = voiceOutput.scrollHeight;
+        }
+
+        // Process voice/text commands
+        function processVoiceCommand(command) {
+            const lowerCommand = command.toLowerCase();
+            
+            // Simulate AI response with a slight delay
+            setTimeout(() => {
+                let response = "I'm not sure how to help with that. Try asking about our CEO, programs, courses, or how to apply!";
+                
+                // Check for exact matches first
+                if (assistantQA[lowerCommand]) {
+                    response = assistantQA[lowerCommand];
+                } else {
+                    // Check for partial matches
+                    for (const [question, answer] of Object.entries(assistantQA)) {
+                        if (lowerCommand.includes(question) || question.includes(lowerCommand)) {
+                            response = answer;
+                            break;
+                        }
+                    }
+                    
+                    // Fallback to original responses for other questions
+                    if (response === "I'm not sure how to help with that. Try asking about our CEO, programs, courses, or how to apply!") {
+                        if (lowerCommand.includes('hello') || lowerCommand.includes('hi')) {
+                            response = "Hello! I'm the MGSDO assistant. How can I help you learn about our organization?";
+                        } else if (lowerCommand.includes('monitoring') || lowerCommand.includes('visit')) {
+                            response = "Our team recently conducted surprise monitoring visits to NFE Centres in Tharparkar. The visits aimed to ensure quality education and community participation in our initiatives.";
+                        } else if (lowerCommand.includes('program') || lowerCommand.includes('course') || lowerCommand.includes('nfe')) {
+                            response = "We operate Non-Formal Education Centres across Tharparkar with support from the Government of Sindh. Our programs focus on basic education and skill development for children and adults.";
+                        } else if (lowerCommand.includes('contact') || lowerCommand.includes('email') || lowerCommand.includes('phone')) {
+                            response = "You can contact us at: info@maxgreenskills.org or call +92 333 3900728. Our head office is in Ghazi Goth, Karachi.";
+                        } else if (lowerCommand.includes('location') || lowerCommand.includes('address') || lowerCommand.includes('tharparkar')) {
+                            response = "Our NFE Centres are located across District Tharparkar. Our head office is at Shaheed Makhdoom Bilawal Society, Ghazi Goth, Karachi.";
+                        } else if (lowerCommand.includes('mission') || lowerCommand.includes('vision') || lowerCommand.includes('purpose')) {
+                            response = "Our mission is to empower underprivileged communities through education and skill development, with a focus on non-formal education in remote areas like Tharparkar.";
+                        } else if (lowerCommand.includes('help')) {
+                            response = "I can help you learn about MGSDO's monitoring visits, programs, contact information, location, and mission. Just ask!";
+                        } else if (lowerCommand.includes('link') || lowerCommand.includes('website')) {
+                            response = "We have multiple websites and deployment links. You can visit maxgreenskills.de, maxgreenskills.org, or any of our Netlify deployment sites. Check the links section for all available URLs.";
+                        } else if (lowerCommand.includes('facebook')) {
+                            response = "You can find us on Facebook at facebook.com/profile.php?id=100065260100181. We have photos, reels, and information about our activities there.";
+                        } else if (lowerCommand.includes('leadership') || lowerCommand.includes('team')) {
+                            response = "Our leadership team includes CEO Munsif Ali Lashari, Director Imtiaz Ali Chandio, Director Admin Hamza Khalid Arain, Director Accounts Ana Sehar, and Director Media Tariq Anwar.";
+                        }
+                    }
+                }
+                
+                addToOutput(`Assistant: ${response}`);
+                
+                // Speak the response if speech synthesis is available
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(response);
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    window.speechSynthesis.speak(utterance);
+                }
+            }, 1000);
+        }
+
+        // Image loading enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            
+            images.forEach(img => {
+                // Add loading class
+                img.classList.add('loading');
+                
+                // Remove loading class when image is loaded
+                if (img.complete) {
+                    img.classList.remove('loading');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.remove('loading');
+                    });
+                    
+                    img.addEventListener('error', function() {
+                        // Handle broken images
+                        this.alt = 'Image not available';
+                        this.classList.remove('loading');
+                    });
+                }
+            });
+        });
+
+        // Initialize with welcome message
+        window.addEventListener('load', function() {
+            if ('speechSynthesis' in window) {
+                const welcomeMsg = new SpeechSynthesisUtterance("Welcome to Max Green Skills Development Organization. How can I assist you today?");
+                welcomeMsg.rate = 0.9;
+                window.speechSynthesis.speak(welcomeMsg);
+            }
+        });
+    </script>
+</body>
+</html>
